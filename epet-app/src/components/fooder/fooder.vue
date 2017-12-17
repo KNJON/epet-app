@@ -2,24 +2,16 @@
   <div class="fooder">
     <ul class="list">
       <li>
-        <a href="javascript:">
-          首页
-        </a>
+        <a href="javascript:"></a>
       </li>
       <li>
-        <a href="javascript:">
-          分类
-        </a>
+        <a href="javascript:"></a>
       </li>
       <li>
-        <a href="javascript:">
-          购物车
-        </a>
+        <a href="javascript:"></a>
       </li>
       <li>
-        <a href="javascript:">
-          我的E宠
-        </a>
+        <a href="javascript:"></a>
       </li>
     </ul>
   </div>
@@ -48,7 +40,20 @@
         text-align center
         line-height 45px
         a
-          width 100%
-          height 100%
-          display inline-block
+          display block
+          background url(./icon.png) no-repeat
+          background-size 234px 163px
+          height 40px
+          width 42px
+          margin 0 auto
+          margin-top 2px
+          &.home-page
+            background-position -42px 0
+          &.classification
+            background-position -85px -41px
+          &.shopping-cart
+            background-position -85px -81px
+          &.center
+            background-position -85px -122px
+
 </style>

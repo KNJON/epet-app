@@ -48,13 +48,13 @@
   @import "../../common/stylus/mixin.styl"
   .classify
     background-color #f3f4f5
-
     .tab
       position fixed
       top 0
       width 100%
       height 40px
       background-color white
+      z-index 10
       .list
         //clearFix()
         width 40%
@@ -77,7 +77,8 @@
     .content
       margin-top 42px
       margin-bottom 38px
-
+      overflow hidden
+      height 100%
       .menu-wrapper
         .list
           width 20%
