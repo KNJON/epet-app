@@ -1,44 +1,110 @@
 <template>
-  <div class="tab1">
-    <div class="menuWrapper" ref="menuWrapper">
-      <ul class="list">
-        <li class="menu-item" v-for="(item, index) in classifyName.categorys">
-          <span class="text">
+  <div class="classifyWrap">
+    <div class="nav-goods">
+      <div class="nav-name"  ref="list" >
+        <ul class="nav-list">
+          <li class="greyBg" v-for="(item, index) in classifyName.categorys"
+              @click="goodSingleShow(index)" :ref="'imisShow'+index">
             {{item.name}}
-          </span>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-msg">
+        <div class="nav-msg-div">
+          <div class="goods-title" v-for="(goods, index) in classifyName.cate_list">
+            {{goods.title}}
+            <ul class="goods-group">
+              <li class="good-single" v-for="(good , index) in goods.list">
+                <img :src="good.photo">
+                <span class="text">
+                  {{good.name}}
+                </span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
     </div>
-    <router-view></router-view>
+
   </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
-  export default {
-    components:{
 
+  import BScroll from 'better-scroll'
+  export default {
+    data() {
+      return {}
     },
+    methods:{
+      goodSingleShow(index){
+        let temp = 'imisShow' + index
+      }
+    },
+
     computed: {
       ...mapState(['classifyName'])
+    },
+
+
+     mounted(){
+      new BScroll(this.$refs.list, {
+        scrollY: true,
+        click: true
+      })
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .tab1
-    margin-top 42px
-    margin-bottom 38px
-    overflow hidden
-    height 100%
-    .menu-wrapper
-      .list
-        width 20%
-        background-color white
-        li
-          text-align center
-          line-height 50px
-          height 50px
-          width 100%
-          border 1px #f3f4f5 solid
+  @import "../../../common/stylus/mixin.styl"
+  .classifyWrap
+    .nav-goods
+      clearFix()
+      position relative
+      top 0
+      width 100%
+      height 582px
+      .nav-name
+        width 70px
+        height 100%
+        background white
+        overflow hidden
+        .nav-list
+          li
+            border-1px(bottom,#f3f4f5)
+            width 70px
+            height 50px
+            background #fff
+            font-size 13px
+            line-height 50px
+            text-align center
+            &.greyBg
+              background white
+      .nav-msg
+        position absolute
+        left 20%
+        top 0
+        width 80%
+        height 100%
+        font-size 13px
+        padding-top 25px
+        .nav-msg-div
+          //border 1px solid red
+          .goods-title
+            height 19px
+            //border 1px solid
+            .goods-group
+              .good-single
+                //border 1px solid lawngreen
+                float left
+                width 33.33%
+                text-align center
+                padding-top 5px
+                img
+                  width 100%
+                .text
+                  color black
 </style>

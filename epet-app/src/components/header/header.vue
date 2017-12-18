@@ -10,9 +10,9 @@
         <input type="text" >
       </div>
       <div class="personInfo">
-        <a href="javascript:">
+        <router-link to="/personal" class="toHome">
           <img src="//static.epetbar.com/static_web/wap/src/images/mydope.png">
-        </a>
+        </router-link>
       </div>
     </div>
     <!--导航-->

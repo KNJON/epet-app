@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="homeWrap">
     <epet-header/>
 
     <epet-carousel/>
@@ -28,8 +28,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  #app
+  .homeWrap
     min-height 100%
     padding-bottom 45px
-    padding-top 50px
+    padding-top 92px
 </style>

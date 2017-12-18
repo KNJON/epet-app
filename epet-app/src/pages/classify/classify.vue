@@ -1,11 +1,11 @@
 <template>
   <div class="classify">
-    <div class="tab border-1px">
+    <div class="tab">
       <ul class="list clearFix">
-        <li>
+        <li class="clickRed" @click="isLeft(true)" ref="listLeft">
           <router-link to="/classify/tab1">分类</router-link>
         </li>
-        <li>
+        <li @click="isLeft(false)" ref="listRight">
           <router-link to="/classify/tab2">品牌</router-link>
         </li>
       </ul>
@@ -13,23 +13,39 @@
         <img src="//static.epetbar.com/static_web/wap/src/images/background/search-ico.png">
       </div>
     </div>
-    <div class="headerLine"></div>
+    <!--<div class="headerLine"></div>-->
 
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-//    import {mapState} from 'vuex'
+
     import BScroll from 'better-scroll'
     export default {
+      data () {
+        return{
+          isShow:true
+        }
+      },
       mounted(){
-//        new BScroll(this.$refs.menuWrapper, {
-//
-//        })
+
+      },
+      methods:{
+        //控制tab颜色
+        isLeft(left){
+          if (left){
+            console.log ( "1212"+this.$refs.listLeft )
+            this.$refs.listLeft.className="clickRed"
+            this.$refs.listRight.className=" "
+          }else{
+            this.$refs.listLeft.className=" "
+            this.$refs.listRight.className="clickRed"
+          }
+        }
       },
       computed: {
-//        ...mapState(['classifyName'])
+
       }
     }
 </script>
@@ -45,18 +61,30 @@
       height 40px
       background-color white
       z-index 10
+      border-1px(bottom,#999)
       .list
         //clearFix()
         width 40%
         margin 0 auto
         li
+          height 35px
           text-align center
-          line-height 40px
+          line-height 35px
           width 50%
           float left
+          &.clickRed
+            a
+              color red
+              border-width 2px
+              border-style solid
+              border-color transparent transparent red transparent
           a
+            text-decoration:none;
             display inline-block
             font-size 13px
+            color black
+            border 2px solid transparent
+
       .search
         float right
         line-height 40px

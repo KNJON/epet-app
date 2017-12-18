@@ -22,7 +22,12 @@
 
 <script>
   import { Swipe } from 'mint-ui'
-  export default {}
+  export default {
+
+    components:{
+
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

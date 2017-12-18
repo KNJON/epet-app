@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contentMain">
     <div class="columnitem">
       <ul class="columlist1">
         <li>
@@ -318,7 +318,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .columnitem
+  .contentMain
+    .columnitem
     .columlist1, .columlist2
       overflow hidden
       width 100%
@@ -330,147 +331,147 @@
           img
             width 100%
             height 100%
-  .surprise_day
-    overflow hidden
-    height 190px
-    .listHeader
-      .content
-        position relative
-        height 60px
-        .logo
-          float left
-          margin 10px 0
-          top 0
-          height 24px
-        .actuaTime
-          margin 10px 0
-          float left
-          height 20px
-          font-size 14px
-          text-align center
-          span
-            display inline-block
-            width 20px
-            height 20px
-            border 1px solid #cacbcc
-        .more
-          float right
-          height 40px
-
-    .sellerInfo
-      height 130px
-      .list
-        width 120%
-        height 100%
-        li
-          float left
-          width 84px
-          margin 0 10px
-          a
-            text-align center
-            display inline-block
-            .info
-              height 80%
-              span
-                color red
-              p
-                font-size 12px
-                color #999
-              img
-                width 100%
-
-  .divimg
-    height 185px
-    a
-      img
-        width 100%
-
-  .currency-adcon
-    height 250px
-    .left
-      float left
-      width 50%
-      img
-        width 100%
-    .right
-      float right
-      width 50%
-      img
-        width 100%
-
-  .assortment
-    .subtitle
-      height 87px
-      width 100%
+    .surprise_day
       overflow hidden
+      height 190px
+      .listHeader
+        .content
+          position relative
+          height 60px
+          .logo
+            float left
+            margin 10px 0
+            top 0
+            height 24px
+          .actuaTime
+            margin 10px 0
+            float left
+            height 20px
+            font-size 14px
+            text-align center
+            span
+              display inline-block
+              width 20px
+              height 20px
+              border 1px solid #cacbcc
+          .more
+            float right
+            height 40px
+
+      .sellerInfo
+        height 130px
+        .list
+          width 120%
+          height 100%
+          li
+            float left
+            width 84px
+            margin 0 10px
+            a
+              text-align center
+              display inline-block
+              .info
+                height 80%
+                span
+                  color red
+                p
+                  font-size 12px
+                  color #999
+                img
+                  width 100%
+
+    .divimg
+      height 185px
+      a
+        img
+          width 100%
+
+    .currency-adcon
+      height 250px
       .left
         float left
-        height 100%
-        margin-left 10px
+        width 50%
         img
-          margin-top 5px
-          height  90%
+          width 100%
       .right
         float right
-        margin-top 16px
-        height 100%
-        a
-          img
-            height 60%
-    .fashion
-      height 356px
-      .list
-        height 210px
-        background-color lightslategray
-        a
-          /*display inline-block*/
-          img
-            width 100%
-          .fashionFooder
-            margin-top 12px
-            height 58px
-            font-size 12px
-            text-align center
-            .text
-              color #333
-            .fashionInfo
-              font-size 13px
-              color #999
+        width 50%
+        img
+          width 100%
 
-    .specialSelling
-      .list
-        height 160px
-        a
+    .assortment
+      .subtitle
+        height 87px
+        width 100%
+        overflow hidden
+        .left
+          float left
+          height 100%
+          margin-left 10px
           img
-            width 100%
-    .experience
-      .list
-        height 160px
-        background-color lightslategray
+            margin-top 5px
+            height  90%
+        .right
+          float right
+          margin-top 16px
+          height 100%
+          a
+            img
+              height 60%
+      .fashion
+        height 356px
+        .list
+          height 210px
+          background-color lightslategray
+          a
+            /*display inline-block*/
+            img
+              width 100%
+            .fashionFooder
+              margin-top 12px
+              height 58px
+              font-size 12px
+              text-align center
+              .text
+                color #333
+              .fashionInfo
+                font-size 13px
+                color #999
+
+      .specialSelling
+        .list
+          height 160px
+          a
+            img
+              width 100%
+      .experience
+        .list
+          height 160px
+          background-color lightslategray
 
 
-  .fooderInfo
-    height 116px
-    background-color lightblue
-    overflow hidden
-    .splitDiv
+    .fooderInfo
+      height 116px
+      //background-color lightblue
+      overflow hidden
+      .splitDiv
 
         img
           height 30px
           width 100%
-    .ft
-      width 80%
-      margin 10px auto
-      margin-top 20px
-      text-align center
-      span
-        display inline-block
-        margin 0 5px
-      color red
-      a
-        color #333
-    .cope
-      font-size 12px
-      margin 0 auto
-      text-align center
+      .ft
+        width 80%
+        margin 10px auto
+        margin-top 20px
+        text-align center
+        span
+          display inline-block
+          margin 0 5px
+        color red
+        a
+          color #333
+      .cope
+        font-size 12px
+        margin 0 auto
+        text-align center
 </style>
