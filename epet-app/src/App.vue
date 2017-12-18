@@ -37,14 +37,14 @@
         document.head.appendChild(styleNode);
       })()
     },
-//    methods:{
-//      homePage() {
-//        document.querySelector('classification').style.backgroundPosition='-42px -41px'
-//      },
-//      classifyPage() {
-//        document.querySelector('classification').style.backgroundPosition='-42px -41px'
-//      }
-//    }
+     methods:{
+        homePage() {
+            document.querySelector('home-page').style.backgroundPosition='-42px -41px'
+        },
+        classifyPage() {
+            document.querySelector('classification').style.backgroundPosition='-42px -41px'
+        }
+     }
   }
 </script>
 

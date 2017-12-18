@@ -96,7 +96,7 @@
       .icon
         height 57px
         a
-          margin-left 50px
+          margin-left 55px
           img
             height 100%
 </style>

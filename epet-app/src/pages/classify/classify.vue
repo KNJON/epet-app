@@ -13,33 +13,23 @@
         <img src="//static.epetbar.com/static_web/wap/src/images/background/search-ico.png">
       </div>
     </div>
-    <div class="content">
-      <div class="menu-wrapper" ref="menuWrapper">
-        <ul class="list">
-          <li class="menu-item" v-for="(item, index) in classifyName.categorys">
-            <span class="text">
-              {{item.name}}
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div class="headerLine"></div>
 
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-    import {mapState} from 'vuex'
+//    import {mapState} from 'vuex'
     import BScroll from 'better-scroll'
     export default {
       mounted(){
-        new BScroll(this.$refs.menuWrapper, {
-
-        })
+//        new BScroll(this.$refs.menuWrapper, {
+//
+//        })
       },
       computed: {
-        ...mapState(['classifyName'])
+//        ...mapState(['classifyName'])
       }
     }
 </script>
@@ -47,7 +37,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixin.styl"
   .classify
-    background-color #f3f4f5
+    /*background-color #f3f4f5*/
     .tab
       position fixed
       top 0
@@ -74,20 +64,11 @@
         img
           width 14px
           height 14px
-    .content
-      margin-top 42px
-      margin-bottom 38px
-      overflow hidden
-      height 100%
-      .menu-wrapper
-        .list
-          width 20%
-          background-color white
-          li
-            text-align center
-            line-height 50px
-            height 50px
-            width 100%
-            border 1px #f3f4f5 solid
 
+
+    .headerLine
+      width 100%
+      margin-top  40px
+      border 1px solid #7e8c8d
+      height 0
 </style>

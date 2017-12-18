@@ -38,7 +38,6 @@
       <div class="btnWrap">
         <mt-button type="default" class="btn1">去逛逛</mt-button>
         <mt-button type="default" class="btn2">我的收藏</mt-button>
-
       </div>
     </div>
   </div>
@@ -66,7 +65,7 @@
         .text
           position absolute
           left 50%
-          transform translatex(-50%)
+          transform translateX(-50%)
           margin 0 auto
           font-size 18px
         .showShop
@@ -87,17 +86,20 @@
 
     .shopCartContent
       position relative
+      overflow hidden
       background-color white
       min-height 298px
       border 1px solid #f3f4f5
+      width 100%
       .btnWrap
         position absolute
         overflow hidden
         width 100%
         bottom 50px
-        left 50%
-        transform translateX(-25%)
+        margin 0 auto
+        left 21%
         .btn1, .btn2
+          //display inline-block
           width 100px
           height 40px
           line-height 40px
