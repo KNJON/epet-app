@@ -1,10 +1,12 @@
 <template>
   <div class="homeWrap">
-    <epet-header/>
+    <epet-header :homeData="homeData"/>
 
-    <epet-carousel/>
 
-    <epet-content/>
+    <epet-carousel />
+
+    <epet-content :homeData="homeData"/>
+
 
   </div>
 </template>
@@ -16,6 +18,8 @@
   import carousel from '../../components/carousel/carousel.vue'
   import content from '../../components/content/content.vue'
   import split from '../../components/split/split.vue'
+
+  import {mapState} from 'vuex'
   export default {
     components: {
       'epet-header': header,
@@ -23,6 +27,9 @@
       'epet-content': content,
       'epet-carousel': carousel,
       'epet-split': split
+    },
+    computed:{
+      ...mapState(['homeData'])
     }
   }
 </script>

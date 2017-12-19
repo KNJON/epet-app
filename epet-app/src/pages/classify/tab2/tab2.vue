@@ -1,7 +1,7 @@
 <template>
   <div class="tabBrand">
     <ul class="brandDiv">
-      <li class="brandDivTitle" v-for="(goods, index) in classifyName.brand">
+      <li class="brandDivTitle" v-for="(goods, index) in data.classifyName.brand">
         <epet-split/>
         <div class="goodsTitle">——{{goods.title}}——</div>
         <ul class="brandDivGoods">
@@ -33,7 +33,8 @@
           'epet-split': split
       },
       computed: {
-        ...mapState(['classifyName'])
+//        ...mapState(['classifyName']),
+        ...mapState(['data'])
       }
     }
 </script>

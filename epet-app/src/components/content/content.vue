@@ -2,59 +2,39 @@
   <div class="contentMain">
     <div class="columnitem">
       <ul class="columlist1">
-        <li>
+        <li v-for="(good, index) in homeData.datas[1].menus">
           <a href="javascript:">
-            <img src="./1-1.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./1-2.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./1-3.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./1-4.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./1-5.jpg">
+            <img :src="good.image">
           </a>
         </li>
       </ul>
-      <ul class="columlist2">
-        <li>
-          <a href="javascript:">
-            <img src="./2-1.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./2-2.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./2-3.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./2-4.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="javascript:">
-            <img src="./2-5.jpg">
-          </a>
-        </li>
-      </ul>
+      <!--<ul class="columlist2">-->
+        <!--<li>-->
+          <!--<a href="javascript:">-->
+            <!--<img src="./2-1.jpg">-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<a href="javascript:">-->
+            <!--<img src="./2-2.jpg">-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<a href="javascript:">-->
+            <!--<img src="./2-3.jpg">-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<a href="javascript:">-->
+            <!--<img src="./2-4.jpg">-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<a href="javascript:">-->
+            <!--<img src="./2-5.jpg">-->
+          <!--</a>-->
+        <!--</li>-->
+      <!--</ul>-->
     </div>
     <epet-split/>
 
@@ -305,6 +285,9 @@
   import carousel from '../carousel/carousel.vue'
   import BScroll from 'better-scroll'
   export default {
+      props:{
+        homeData:Object
+      },
       components:{
         'epet-split': split,
         'epet-carousel': carousel

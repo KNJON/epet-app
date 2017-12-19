@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import { Swipe } from 'mint-ui'
+  //import { Swipe } from 'mint-ui'
   export default {
 
     components:{

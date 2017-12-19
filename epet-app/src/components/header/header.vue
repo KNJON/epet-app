@@ -18,26 +18,8 @@
     <!--导航-->
     <div class="nav-wrap" ref="nav">
       <ul class="nav-list">
-        <li>
-          <a href="javascript:;" class="active">首页</a>
-        </li>
-        <li>
-          <a href="javascript:;">猫猫主粮</a>
-        </li>
-        <li>
-          <a href="javascript:;">罐头超市</a>
-        </li>
-        <li>
-          <a href="javascript:;">医疗保健</a>
-        </li>
-        <li>
-          <a href="javascript:;">猫砂</a>
-        </li>
-        <li>
-          <a href="javascript:;">零食玩具</a>
-        </li>
-        <li>
-          <a href="javascript:;">美容香波</a>
+        <li v-for="(good,index) in homeData.menus">
+          <a href="javascript:;" class="active">{{good.menu_name}}</a>
         </li>
       </ul>
     </div>
@@ -48,12 +30,16 @@
 <script>
   import BScroll from 'better-scroll'
   export default {
+    props:{
+        homeData: Object
+    },
     components: {
 
     },
     mounted(){
       new BScroll(this.$refs.nav, {
-        scrollX: true
+        scrollX: true,
+        click:true
       })
     },
     methods:{

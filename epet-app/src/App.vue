@@ -33,6 +33,8 @@
   export default {
     mounted () {
       this.$store.dispatch('reqClassifyName')
+      this.$store.dispatch('reqHomeName')
+
       document.addEventListener("touchstart",function(ev){
         ev=ev||event;
         ev.preventDefault();
