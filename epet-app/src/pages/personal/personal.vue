@@ -45,8 +45,8 @@
               <span class="passwordico"></span>
               <input type="text" placeholder="请输入图片内容" name="varify">
               <span class="fr seccode" >
-                  <img src="./seccode.png">
-                </span>
+                  <img src="http://demo.open.renren.io/renren-fast/captcha.jpg">
+              </span>
             </li>
             <li>
               <span class="passwordico"></span>
@@ -236,6 +236,9 @@
                 top:0
                 right 0
                 line-height 46px
+                img
+                  height 40px
+                  width 100px
               .numico
                 float: left;
                 display: inline;

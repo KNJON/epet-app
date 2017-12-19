@@ -60,7 +60,11 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  html, body
+    height 100%
+    overflow hidden
   #app
+    height 100%
     .fooder
       position fixed
       bottom 0px

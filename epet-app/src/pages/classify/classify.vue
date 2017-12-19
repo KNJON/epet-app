@@ -53,9 +53,10 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixin.styl"
   .classify
+    height 100%
     /*background-color #f3f4f5*/
     .tab
-      position fixed
+      position fixed !important
       top 0
       width 100%
       height 40px

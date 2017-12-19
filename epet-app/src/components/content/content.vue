@@ -2,39 +2,12 @@
   <div class="contentMain">
     <div class="columnitem">
       <ul class="columlist1">
-        <li v-for="(good, index) in homeData.datas[1].menus">
+        <li v-for="(good, index) in homeData.datas[1].menus" :key="index">
           <a href="javascript:">
             <img :src="good.image">
           </a>
         </li>
       </ul>
-      <!--<ul class="columlist2">-->
-        <!--<li>-->
-          <!--<a href="javascript:">-->
-            <!--<img src="./2-1.jpg">-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<a href="javascript:">-->
-            <!--<img src="./2-2.jpg">-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<a href="javascript:">-->
-            <!--<img src="./2-3.jpg">-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<a href="javascript:">-->
-            <!--<img src="./2-4.jpg">-->
-          <!--</a>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<a href="javascript:">-->
-            <!--<img src="./2-5.jpg">-->
-          <!--</a>-->
-        <!--</li>-->
-      <!--</ul>-->
     </div>
     <epet-split/>
 
@@ -104,12 +77,17 @@
     <epet-split/>
 
     <div class="currency-adcon">
+      <!--<ui>-->
+        <!--<li v-for="(item,index) in homeData.datas[7].content_images" :key="index">-->
+          <!--<img :src="item.image" >-->
+        <!--</li>-->
+      <!--</ui>-->
       <div class="left">
-        <img src="https://img2.epetbar.com/nowater/2017-12/14/19/5a2a1a99f5642f160f4d22ee3cb7ee8a.jpg@!water">
+        <img :src="homeData.datas[7].content_images[0].image">
       </div>
       <div class="right">
-        <img src="https://img2.epetbar.com/nowater/2017-12/13/09/e785855e80fd229d424d9ce15d7d7666.jpg@!water">
-        <img src="https://img2.epetbar.com/nowater/2017-12/13/09/5d685158ea5f5eb8b707dad905384aa6.jpg@!water">
+        <img :src="homeData.datas[7].content_images[1].image">
+        <img :src="homeData.datas[7].content_images[2].image">
       </div>
     </div>
     <epet-split/>

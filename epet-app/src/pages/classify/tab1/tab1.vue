@@ -3,7 +3,7 @@
     <div class="nav-goods">
       <div class="nav-name"  ref="list" >
         <ul class="nav-list">
-          <li class="greyBg" v-for="(item, index) in data.classifyName.categorys"
+          <li class="greyBg" v-for="(item, index) in classifyName.categorys"
               @click="goodSingleShow(index)" :ref="'imisShow'+index">
             {{item.name}}
           </li>
@@ -11,7 +11,7 @@
       </div>
       <div class="nav-msg">
         <div class="nav-msg-div">
-          <div class="goods-title" v-for="(goods, index) in data.classifyName.cate_list">
+          <div class="goods-title" v-for="(goods, index) in classifyName.cate_list">
             {{goods.title}}
             <ul class="goods-group">
               <li class="good-single" v-for="(good , index) in goods.list">
@@ -45,8 +45,8 @@
     },
 
     computed: {
-      //...mapState(['classifyName']),
-      ...mapState(['data']),
+      ...mapState(['classifyName']),
+//      ...mapState(['data']),
     },
 
 
