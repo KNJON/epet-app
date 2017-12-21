@@ -1,111 +1,221 @@
 <template>
-  <div class="classifyWrap">
-    <div class="nav-goods">
-      <div class="nav-name"  ref="list" >
-        <ul class="nav-list">
-          <li class="greyBg" v-for="(item, index) in classifyName.categorys"
-              @click="goodSingleShow(index)" :ref="'imisShow'+index">
-            {{item.name}}
-          </li>
-        </ul>
-      </div>
-      <div class="nav-msg">
-        <div class="nav-msg-div">
-          <div class="goods-title" v-for="(goods, index) in classifyName.cate_list">
-            {{goods.title}}
-            <ul class="goods-group">
-              <li class="good-single" v-for="(good , index) in goods.list">
-                <img :src="good.photo">
-                <span class="text">
-                  {{good.name}}
-                </span>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
+  <div class="nav-goods">
+    <div class="nav-name"  ref="list">
+      <ul class="nav-list">
+        <li class="greyBg" v-for="(goods ,index) in classifyName.categorys">
+          {{goods.name}}
+        </li>
+      </ul>
     </div>
+    <ul class="nav-msg-wrap" ref="navMsg">
+      <li class="nav-msg" ref="navMsg" >
+        <div class="cataGoodList">
+          <div class="cataTitle">
+            <a href="" class="cataname" >
+              1111
+            </a>
+            <img class=" arrowL" src="https://static.epetbar.com/static_wap/appmall/lib/goods/cate_right_img.png" >
+          </div>
+          <ul class="catalist">
+            <li class="cataGoodItem" v-for="(goods, index) in classifyName.cate_list">
+              <a href="" class="db">
+                <img class="goodImg" src="https://img2.epetbar.com/nowater/cates/2014-03/24/1d55d100e176bd571e4b0fd85604a14d.jpg@!300w-b" >
+                <p class="cataText">ggg</p>
+              </a>
+            </li>
 
+          </ul>
+        </div>
+        <div class="cataGoodBrand">
+          <p class="brandname">热门品牌</p>
+          <ul class="Brandlist">
+            <li>
+              <div class="logo-img">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg" alt="">
+              </div>
+              <p class="sign-name">光能</p>
+              <p class="country">美国</p>
+            </li>
+            <li>
+              <div class="logo-img">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg" alt="">
+              </div>
+              <p class="sign-name">光能</p>
+              <p class="country">美国</p>
+            </li>
+            <li>
+              <div class="logo-img">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg" alt="">
+              </div>
+              <p class="sign-name">光能</p>
+              <p class="country">美国</p>
+            </li>
+            <li>
+              <div class="logo-img">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg" alt="">
+              </div>
+              <p class="sign-name">光能</p>
+              <p class="country">美国</p>
+            </li>
+            <li>
+              <div class="logo-img">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg" alt="">
+              </div>
+              <p class="sign-name">光能</p>
+              <p class="country">美国</p>
+            </li>
+            <li>
+              <div class="logo-img">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg" alt="">
+              </div>
+              <p class="sign-name">光能</p>
+              <p class="country">美国</p>
+            </li>
+            <li>
+              <div class="logo-img">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg" alt="">
+              </div>
+              <p class="sign-name">光能</p>
+              <p class="country">美国</p>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
-
   import BScroll from 'better-scroll'
   export default {
     data() {
       return {}
     },
-    methods:{
-      goodSingleShow(index){
-        let temp = 'imisShow' + index
-      }
-    },
 
     computed: {
       ...mapState(['classifyName']),
-//      ...mapState(['data']),
     },
 
 
-     mounted(){
+    mounted(){
       new BScroll(this.$refs.list, {
-        scrollY: true,
-        click: true
-      })
+        scrollY: true
+      }),
+        new BScroll(this.$refs.navMsg, {
+          scrollY: true
+        })
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../../common/stylus/mixin.styl"
-  .classifyWrap
-    .nav-goods
-      clearFix()
-      position relative
+  /*@import  '../../../common/stylus/mixin.styl'*/
+  .nav-goods
+    clearFix()
+    position relative
+    top 0
+    width 100%
+    height 85%
+    .nav-name
+      padding-top 40px
+      width 75px
+      height 100%
+      background #f3f4f5
+      overflow hidden
+      .nav-list
+        li
+          border-1px(#f3f4f5)
+          width 70px
+          height 50px
+          background #fff
+          font-size 13px
+          line-height 50px
+          text-align center
+          &.greyBg
+            background #f3f4f5
+    .nav-msg-wrap
+      position absolute
+      left 75px
       top 0
-      width 100%
-      height 582px
-      .nav-name
-        width 70px
-        height 100%
-        background white
-        overflow hidden
-        .nav-list
-          li
-            border-1px(bottom,#f3f4f5)
-            width 70px
-            height 50px
-            background #fff
-            font-size 13px
-            line-height 50px
-            text-align center
-            &.greyBg
-              background white
+      right 0
+      height 100%
       .nav-msg
-        position absolute
-        left 20%
-        top 0
-        width 80%
-        height 100%
-        font-size 13px
-        padding-top 25px
-        .nav-msg-div
-          //border 1px solid red
-          .goods-title
-            height 19px
-            //border 1px solid
-            .goods-group
-              .good-single
-                //border 1px solid lawngreen
-                float left
-                width 33.33%
+        width 100%
+        overflow hidden
+        .cataGoodList
+          box-sizing border-box
+          width 100%
+          padding 10px 10px
+          .cataTitle
+            padding 6px 0
+            .cataname
+              font-size 12px
+            .arrowL
+              float right
+              height 10px
+          .catalist
+            width 100%
+            display flex
+            flex-wrap wrap
+
+            .cataGoodItem
+              width 33.33%
+              text-align center
+              .goodImg
+                height 86.66px
+              .cataText
+                height 20px
+                color #333
+                font-size 12px
+                margin-top 10px
                 text-align center
-                padding-top 5px
+                white-space nowrap
+                text-overflow ellipsis
+                overflow hidden
+
+        .cataGoodBrand
+          box-sizing border-box
+          width 100%
+          overflow hidden
+          padding 10px 8px
+          .brandname
+            font-size 12px
+            color: #7e8c8d
+            padding 5px 0
+          .Brandlist
+            display flex
+            flex-wrap wrap
+            width 100%
+            overflow hidden
+            li
+              width 45%
+              text-align center
+              padding 3px 5px
+              .logo-img
+                height  40px
+                padding 10px
+                margin 0 5px
+                border 1px solid #f3f4f5
+                line-height 40px
                 img
-                  width 100%
-                .text
-                  color black
+                  height 100%
+              .sign-name
+                height 20px
+                line-height 20px
+                overflow hidden
+                text-overflow ellipsi;
+                white-space nowrap
+                font-size 13px
+                margin-top 5px
+                text-align center
+              .country
+                height 20px
+                line-height 20px
+                font-size 12px
+                color #999
+                text-align center
+
+
+
 </style>

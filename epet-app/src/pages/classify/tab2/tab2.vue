@@ -22,15 +22,14 @@
     <!--全部商品遮罩-->
     <div class="shadeShow" v-show="isShow" ref="shade_show">
       <div>
-        <div class="shadeHeader" @click="shadeShow1">
-          <div  class="shadeBack"  >
+        <div class="shadeHeader" >
+          <div  class="shadeBack"  @click="shadeShow1">
             <img src="./triangleicon.png" >
           </div>
           <span class="text">全部品牌</span>
           <div @click="popShow" class="showDiv">
             <img src="./menuicon.png" >
           </div>
-
         </div>
         <div class="divShow " v-show="isPop">
           <ul class="list">
@@ -51,12 +50,12 @@
             </li>
           </ul>
         </div>
-        <ul class="brandGather">
-          <li class="letterDiv" v-for="(goods, index) in classifyName.brand_gather" :key="index">
+        <ul class="brandGather" ref="brandList">
+          <li class="letterDiv" v-for="(goods, index) in classifyName.brand_gather" :key="index" >
             <div class="letterTitle">
               <span>{{goods.order}}</span>
             </div>
-            <ul class="brandList">
+            <ul class="brandList" >
               <li v-for=" (good ,index) in goods.list">
                 <div class="left">
                   <img :src="good.logo">
@@ -72,6 +71,13 @@
                 <div class="borderline"></div>
               </li>
             </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="shadeNav">
+        <ul class="list">
+          <li v-for="(i,index) in arr" :key="index" :class="{current: index===currentIndex}">
+            {{i}}
           </li>
         </ul>
       </div>
@@ -95,41 +101,89 @@
     export default {
       data() {
         return {
+          arr:["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
           isShow: false,
-          isPop: false
+          isPop: false,
+          scrollY: 0,  //代表右侧列表滑动的Y轴坐标
+          tops: [], // 代表右侧所有分类li的top组件的数组
         }
       },
       watch:{
         isShow:function () {
           setTimeout(()=>{
-            this.markshow.refresh()
+            this.goodsScroll.refresh()
+            this._initTops ()
           })
         }
       },
       mounted(){
-        this.cScorll = new BScroll(this.$refs.tabBrand, {
-//          scrollX: true,
-          click: true
-        })
-        this.markshow = new BScroll(this.$refs.shade_show, {
-          //嵌套betterscroll 不可重复定义事件
-        })
+        this.$nextTick(() => { // 界面更新后回调
+          this.cScorll = new BScroll(this.$refs.tabBrand, {
+            click: true
+          })
+          this._initScroll()
 
+        })
+//        this.markshow = new BScroll(this.$refs.shade_show, {
+//          //嵌套betterscroll 不可重复定义事件
+//        })
+
+      },
+      methods:{
+        _initScroll(){
+          this.goodsScroll = new BScroll(this.$refs.shade_show, {
+            probeType: 3//嵌套betterscroll 不可重复定义事件
+          }),
+
+          this.goodsScroll.on('scroll', (event) => {
+            console.log(event.y)
+            // 更新scrollY
+            this.scrollY = Math.abs(event.y)
+          })
+
+          // 绑定滑动结束的监听
+//          this.goodsScroll.on('scrollEnd', (event) => {
+//            this.scrollY = Math.abs(event.y)
+//          })
+        },
+        _initTops () {
+          const tops = []
+          let top = 0
+          tops.push(top)
+          let brandList = this.$refs.brandList
+          console.log(brandList)
+          const lis = brandList.getElementsByClassName('brandList')
+          console.log ( 'lis=' , lis )
+          for (var i = 0,length=lis.length; i<length;  i++) {
+            var li = lis[i]
+            top += li.clientHeight
+            tops.push(top)
+          }
+
+          // 更新状态
+          this.tops = tops
+          console.log (  tops )
+        },
+        shadeShow1(){
+          console.log ( 'shadeShow1' )
+          this.isShow = ! this.isShow
+        },
+        popShow(){
+          this.isPop = !this.isPop
+        }
       },
       components:{
           'epet-split': split
       },
       computed: {
         ...mapState(['classifyName']),
-//        ...mapState(['data'])
-      }
-      ,methods:{
-        shadeShow1(){
-            console.log ( '111111' )
-            this.isShow = ! this.isShow
-        },
-        popShow(){
-            this.isPop = !this.isPop
+        currentIndex () {
+          const {scrollY, tops} = this
+          console.log(tops)
+          // 根据scrollY在tops中找到一个对应的下标
+          // scrollY>=top && scrollY<nextTop
+          return tops.findIndex((top, index) => scrollY>=top && scrollY<tops[index+1])
+
         }
       }
     }
@@ -274,4 +328,17 @@
                   color  #999
               .borderline
                 border 1px red
+      .shadeNav
+        position absolute
+        top 145px
+        right 6px
+        .list
+          font-size 12px
+          text-align center
+          li
+            height 14px
+            color #999
+
+          .current
+            color red
 </style>

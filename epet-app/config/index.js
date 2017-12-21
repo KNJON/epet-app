@@ -19,6 +19,23 @@ module.exports = {
         }
       }
     },
+    // proxyTable: {
+    //   '/api':{
+    //     target:'https://mallcdn.api.epet.com',
+    //     changeOrigin:true,
+    //     pathRewrite:{
+    //       '^/api': '/'
+    //     }
+    //   },
+    //   '/codeapi':{
+    //     target:'http://localhost:3000',
+    //     changeOrigin:true,
+    //     pathRewrite:{
+    //       '^/codeapi': '/'
+    //     }
+    //   }
+    // },
+
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

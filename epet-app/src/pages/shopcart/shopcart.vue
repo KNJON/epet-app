@@ -52,15 +52,17 @@
     export default {
         data(){
           return{
-              isShow: false
+              isShow: false,
+
           }
         },
         methods:{
           isShowDiv(){
             this.isShow = !this.isShow
             console.log ( 'isShow:'+ this.isShow )
-          }
+          },
         }
+
     }
 </script>
 
