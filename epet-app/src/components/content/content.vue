@@ -1,13 +1,13 @@
 <template>
   <div class="contentMain" ref="contentScroll">
       <div>
-        <epet-carousel />
+        <epet-carousel :homeData="homeData" v-if="homeData.datas"/>
 
-        <div class="columnitem">
-          <ul class="columlist1" >
-            <li v-for="(good, index) in homeData.datas" :key="index">
+        <div class="columnitem" v-if="homeData.datas">
+          <ul class="columlist1"  >
+            <li v-for="(goods, index) in homeData.datas[1].menus" :key="index">
               <a href="javascript:">
-               <img :src="good.image">
+               <img :src="goods.image">
              </a>
             </li>
           </ul>

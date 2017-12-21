@@ -1,20 +1,8 @@
 <template>
-  <div class="carousel">
-    <mt-swipe :auto="2500">
-      <mt-swipe-item>
-        <img src="https://img2.epetbar.com/nowater/2017-12/14/11/3d37da259b71fee7a52d9ec8e6909a6f.jpg@!water" >
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="https://img2.epetbar.com/nowater/2017-12/13/14/c3a870ba1b2efc5a020a51cae6d6f72c.jpg@!water">
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="https://img2.epetbar.com/nowater/2017-12/13/22/6a26f5c3d5063271682027443021aac3.jpg@!water">
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="https://img2.epetbar.com/nowater/2017-12/14/11/fa4f3fc3e22d73eb1180d0facc7d8978.jpg@!water">
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="https://img2.epetbar.com/nowater/2017-12/13/23/6b14a021f255a05b7d8e4f7b03e8dc36.png@!water">
+  <div class="carousel" v-if="homeData">
+    <mt-swipe :auto="2500" >
+      <mt-swipe-item v-for="(good,index) in homeData.datas[0].value">
+        <img :src="good.image" >
       </mt-swipe-item>
     </mt-swipe>
   </div>
@@ -23,7 +11,9 @@
 <script>
   //import { Swipe } from 'mint-ui'
   export default {
-
+    props:{
+      homeData:Object
+    },
     components:{
 
     }
